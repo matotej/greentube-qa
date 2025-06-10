@@ -32,6 +32,8 @@
 
 ## Test scenarios
 
+:white_check_mark: - would automate
+:x: - would not automate on current environment
 ### Login
 :white_check_mark:
 ```gherkin
