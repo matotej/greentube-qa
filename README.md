@@ -70,7 +70,7 @@ Scenario: User requests new password
     When User enters valid nickname for login
     And User enters valid E mail for login
     When Usser click on Send button
-    Then Email with new credentials should be sent
+    Then Email with Change password link should be sent
 ```
 ### Registration
 
