@@ -4,8 +4,17 @@ import { test, expect, request } from '@playwright/test';
 // Define the API endpoint
 const url = 'https://petstore.swagger.io/v2/pet';
 // Define headers
-const headers = {
+const headersPost = {
     'Content-Type': 'application/json',
+    'api_key': process.env.API_KEY as string // Required for Petstore API authorization
+};
+
+const headersGet = {
+    'accept': 'application/json',
+};
+
+const headersDelete = {
+    'accept': 'application/json',
     'api_key': process.env.API_KEY as string // Required for Petstore API authorization
 };
 
@@ -42,7 +51,7 @@ test.describe('Petstore API', () => {
        
         // Send the POST request
         const response = await request.post(url, {
-            headers: headers,
+            headers: headersPost,
             data: petData
         });
 
@@ -62,7 +71,7 @@ test.describe('Petstore API', () => {
        
         // Send the POST request
         const response = await request.get(url, {
-            headers: headers,
+            headers: headersGet,
             data: petData
         });
 
@@ -74,7 +83,7 @@ test.describe('Petstore API', () => {
     test('Get created pet from Petstore API', async ({ request }) => {
 
         const response = await request.get(`${url}/${petData.id}`, {
-            headers: headers
+            headers: headersGet
         });
 
         // Validate the response
@@ -93,7 +102,7 @@ test.describe('Petstore API', () => {
        
         // Send the PUT request for update
         const response = await request.put(url, {
-            headers: headers,
+            headers: headersPost,
             data: updatedPetData
         });
 
@@ -109,12 +118,18 @@ test.describe('Petstore API', () => {
     });
 
     test('Delete created pet from Petstore API', async ({ request }) => {
-        const response = await request.delete(`${url}/${petData.id}`);
-
+        const response = await request.delete(`${url}/${petData.id}`, {
+            headers: headersDelete
+        });
         expect(response.status()).toBe(200);
+    });
+
+    test('Verify pet was removed from Petstore API', async ({ request }) => {
+        const response = await request.delete(`${url}/${petData.id}`, {
+            headers: headersDelete
+        });
 
         // Verify pet is deleted (should return 404)
-        const secondResponse = await request.delete(`${url}/${petData.id}`);
-        expect(secondResponse.status()).toBe(404);
+        expect(response.status()).toBe(404);
     });
 });
