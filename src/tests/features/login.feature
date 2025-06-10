@@ -5,10 +5,6 @@ Feature: Login
         Given User navigates to the application
         And User navigates to the Login form
 
-    #Scenario: Validate that all inputs are mandatory
-    #    When New user clicks on the Begin Adventure button to register
-    #    Then All inputs field show error message
-
     Scenario: Login should be successful
         When User enters valid nickname for login
         And User enters valid password for login

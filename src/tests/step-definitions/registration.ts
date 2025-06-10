@@ -18,10 +18,10 @@ Given('New user clicks on the Register button', async () => {
 });
 
 When('New user clicks on the Begin Adventure button to register', async () => {
-    await pageFixture.page.locator('form .c-btn--primary').click();
+    await registrationPage.clickRegistrationButton();
 });
 
-Then('All inputs field show error message', async () => {
+Then('All inputs fields show error message', async () => {
     await registrationPage.validateAllErrorMessages();
 });
 
@@ -37,28 +37,15 @@ When('New user enters password {string}', async (password: string) => {
     await registrationPage.enterPassword(password);
 });
 
-When('User enters valid email', async () => {
-    await pageFixture.page.locator('[name="email"]').fill('test-email@testdomain.si');
-});
-
-When('User enters valid nickname', async () => {
-    await pageFixture.page.locator('[name="nickname"]').fill('validnickname');
-});
-
-When('User enters valid password', async () => {
-    await pageFixture.page.locator('[name="password"]').fill('abcdefghij123');
-});
-
 When('New user sets correct birth date', async () => {
     await registrationPage.setValidDateOfBirth();
 });
 
+// Not used
 Then('User confirms he is not a robot', async () => {
     await pageFixture.page.waitForTimeout(5000);
     const captchaFrame = pageFixture.page.frameLocator('iframe[title="reCAPTCHA"]');
     await captchaFrame.locator('div.rc-anchor-content').click();
-
-    await pageFixture.page.waitForTimeout(5000);
 });
 
 When('New user agrees with terms', async () => {

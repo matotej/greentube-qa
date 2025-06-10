@@ -13,6 +13,7 @@ export default class LoginPage {
 
     private values = {
         modalTitle: 'Login',
+        loginError: 'Incorrect nickname/password combination.'
     };
 
     constructor(private page: Page) { }
@@ -41,7 +42,7 @@ export default class LoginPage {
     }
 
     async loginFailed() {
-        await expect(this.page.locator('.c-form-errors')).toContainText('Incorrect nickname/password combination.');
+        await expect(this.page.locator('.c-form-errors')).toContainText(this.values.loginError);
     }
 
 }

@@ -7,7 +7,7 @@ Feature: Registration
 
     Scenario: Validate that all inputs are mandatory
         When New user clicks on the Begin Adventure button to register
-        Then All inputs field show error message
+        Then All inputs fields show error message
 
     Scenario: Validate password tooltip is shown
         When User clicks on the password input

@@ -72,7 +72,6 @@ export default class RegistrationPage {
     // If form is empty, validate that all error messages are shown
     async validateAllErrorMessages() {
         expect(await this.page.locator(this.selectors.inputError).count()).toBe(6);
-        console.log(await this.page.locator(this.selectors.inputError).count());
 
         // Validate error messages for each input
         await this.inputErrors(this.selectors.emailInput, this.selectors.inputParent, this.values.emailError);
@@ -86,7 +85,7 @@ export default class RegistrationPage {
     }
 
     async validateErrorMessageForPassword(error: string = this.values.passwordError) {
-        await this.page.waitForTimeout(500);
+        await this.page.waitForTimeout(1000);
         await this.inputErrors(this.selectors.passwordInput, this.selectors.inputParent, error);
     }
 
@@ -96,11 +95,6 @@ export default class RegistrationPage {
 
     async inputErrors(inputSelector: string, parentSelector: string, inputErrors: string | string[]) {
         const parentElt = await this.getParentElement(inputSelector, parentSelector);
-
-        if (this.selectors.captchaIframe === inputSelector) {
-            console.log(await parentElt.innerHTML());
-            console.log(await parentElt.allTextContents());
-        }
 
         if (typeof inputErrors === 'string') {
             inputErrors = [inputErrors];
@@ -113,8 +107,6 @@ export default class RegistrationPage {
         });
 
         const errors = parentElt.locator('ul');
-
-        console.log(await errors.textContent());
     }
 
     async clickOnPasswordInput() {
@@ -139,7 +131,6 @@ export default class RegistrationPage {
     async onlyCaptchaErrorIsShown() {
         await this.page.waitForTimeout(500);
         expect(await this.page.locator(this.selectors.inputError).count()).toBe(1);
-        console.log(await this.page.locator(this.selectors.inputError).count());
 
         await this.validateErrorMessageForCaptcha();
     }

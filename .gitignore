@@ -2,6 +2,7 @@
 # Playwright
 node_modules/
 /test-results/
+/reports/
 /src/helper/env/.env*
 .env
 

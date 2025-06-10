@@ -9,8 +9,7 @@ const headers = {
     'api_key': process.env.API_KEY as string // Required for Petstore API authorization
 };
 
-//const apiContext = await request.newContext();
-
+// Generate random ID for pet
 const petId = Math.floor(Math.random() * 10000);
 
 const petData = {
@@ -38,7 +37,7 @@ const updatedPetData = {
 
 
 test.describe('Petstore API', () => {
-/*
+
     test('Create a new pet in Petstore API', async ({ request }) => {
        
         // Send the POST request
@@ -58,73 +57,66 @@ test.describe('Petstore API', () => {
         expect(responseBody.category).toHaveProperty('name', petData.category.name);
         console.log('Pet created successfully:', responseBody);
     });
-*/
+
     test('Get created pet from Petstore API', async ({ request }) => {
 
-        /*
-        const apiContext = await request.newContext();
-        const userCreateResponse = await apiContext.get(
-            'https://petstore.swagger.io/v2/pet/findByStatus?status=available',
-        );
-
-        console.log(await userCreateResponse.json());
-*/
-
-        console.log(`${url}/3370`);
-
-        const response = await request.get(`${url}/3370`, {
+        const response = await request.get(`${url}/${petData.id}`, {
             headers: headers
         });
 
-        /*
-        const apiContext1 = await request.newContext();
-        const response = await apiContext1.get(`${url}/pet/3370`, {
-            headers: headers
-        });
-*/
-        //headers: {'accept':'application/json'}
-
-        console.log(await response);
-        console.log(await response.json());
-
-        // Assert status code
-        expect(response.status(), `Expected 200, got ${response.status()}`).toBe(200);
-
-        console.log('Pet fetched successfully:', await response.json());
+        // Validate the response
+        expect(response.status()).toBe(200); // Expect HTTP 200 for successful creation
+    
+        // Parse and validate the response body
+        const responseBody = await response.json();
+        expect(responseBody).toHaveProperty('id', petData.id);
+        expect(responseBody).toHaveProperty('name', petData.name);
+        expect(responseBody).toHaveProperty('status', petData.status);
+        expect(responseBody.category).toHaveProperty('name', petData.category.name);
+        console.log('Pet created successfully:', responseBody);
     });
-/*
+
+    test('Update the new pet in Petstore API', async ({ request }) => {
+       
+        // Send the PUT request for update
+        const response = await request.put(url, {
+            headers: headers,
+            data: updatedPetData
+        });
+
+        // Validate the response
+        expect(response.status()).toBe(200); // Expect HTTP 200 for successful creation
+    
+        // Parse and validate the response body
+        const responseBody = await response.json();
+        expect(responseBody).toHaveProperty('id', updatedPetData.id);
+        expect(responseBody).toHaveProperty('name', updatedPetData.name);
+        expect(responseBody).toHaveProperty('status', updatedPetData.status);
+        console.log('Pet updated successfully:', responseBody);
+    });
+
     test('Delete created pet from Petstore API', async ({ request }) => {
-        console.log(`${url}/pet/${petData.id}`);
-        const response = await request.delete(`${url}/pet/${petData.id}`,
+        const response = await request.delete(`${url}/${petData.id}`,
         {
             headers: headers
         });
 
-        // Assert status code
-        expect(response.status(), `Expected 200, got ${response.status()}`).toBe(200);
+        expect(response.status()).toBe(200);
 
         // Verify pet is deleted (should return 404)
-        const getResponse = await request.get(`${url}/pet/${petData.id}`);
-        expect(getResponse.status(), `Expected 404, got ${getResponse.status()}`).toBe(404);
+        const getResponse = await request.delete(`${url}/${petData.id}`);
+        expect(response.status()).toBe(404);
     });
-    */
-
-    test('DELETE /pet/{petId} - Invalid pet ID (Status 400)', async ({ request }) => {
-        try {
-            const invalidPetId = 'invalid-id'; // Non-numeric ID
-            /*const response = await request.delete(`${url}/${invalidPetId}`,
-            {
-                headers: headers
-            });
-            */
-
-            const response = await request.delete(`${url}/${invalidPetId}`);
     
-             // Assert status code
-            expect(response.status(), `Expected 400, got ${response.status()}`).toBe(400);
-        } catch (error) {
-            console.log('DELETE /pet/{petId} - Invalid pet ID', error);
-            throw error;
-        }
+
+    test('Delete /pet/{petId} - Invalid pet ID (Status 400)', async ({ request }) => {
+        const invalidPetId = 'invalid-id'; // Non-numeric ID
+        const response = await request.delete(`${url}/${invalidPetId}`,
+        {
+            headers: headers
+        });
+
+            // Assert status code
+        expect(response.status()).toBe(400);
       });
 });
