@@ -1,0 +1,852 @@
+[
+  {
+    "description": "    Feature Login page will work depending on the user credentials.",
+    "elements": [
+      {
+        "description": "",
+        "id": "login;login-should-be-successful",
+        "keyword": "Scenario",
+        "line": 12,
+        "name": "Login should be successful",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 1697004464
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "User navigates to the application",
+            "match": {
+              "location": "src/tests/step-definitions/login.ts:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1381974274
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "User navigates to the Login form",
+            "match": {
+              "location": "src/tests/step-definitions/login.ts:16"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 248312060
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 13,
+            "name": "User enters valid nickname for login",
+            "match": {
+              "location": "src/tests/step-definitions/login.ts:21"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 198223409
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 14,
+            "name": "User enters valid password for login",
+            "match": {
+              "location": "src/tests/step-definitions/login.ts:29"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 27703854
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 15,
+            "name": "User clicks on a log in button",
+            "match": {
+              "location": "src/tests/step-definitions/login.ts:37"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 152123275
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 16,
+            "name": "Valid user should be logged in",
+            "match": {
+              "location": "src/tests/step-definitions/login.ts:41"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 2070592317
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 69590815
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "login;login-should-be-unsuccessful",
+        "keyword": "Scenario",
+        "line": 18,
+        "name": "Login should be unsuccessful",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 475571643
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "User navigates to the application",
+            "match": {
+              "location": "src/tests/step-definitions/login.ts:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1557784759
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "User navigates to the Login form",
+            "match": {
+              "location": "src/tests/step-definitions/login.ts:16"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 187527203
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 19,
+            "name": "User enters nickname \"test1\"",
+            "match": {
+              "location": "src/tests/step-definitions/login.ts:25"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 129353194
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 20,
+            "name": "User enters password \"test123\"",
+            "match": {
+              "location": "src/tests/step-definitions/login.ts:33"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 85514458
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 21,
+            "name": "User clicks on a log in button",
+            "match": {
+              "location": "src/tests/step-definitions/login.ts:37"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 82528517
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "But ",
+            "line": 22,
+            "name": "Login should fail",
+            "match": {
+              "location": "src/tests/step-definitions/login.ts:45"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 906951151
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 39150307
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "login",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Login",
+    "tags": [],
+    "uri": "src/tests/features/login.feature"
+  },
+  {
+    "description": "     Feature Registration page will work depending on the correct user data.",
+    "elements": [
+      {
+        "description": "",
+        "id": "registration;validate-that-all-inputs-are-mandatory",
+        "keyword": "Scenario",
+        "line": 8,
+        "name": "Validate that all inputs are mandatory",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 508549675
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "User navigates to the application",
+            "match": {
+              "location": "src/tests/step-definitions/login.ts:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1096098114
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "New user clicks on the Register button",
+            "match": {
+              "location": "src/tests/step-definitions/registration.ts:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 564712381
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 9,
+            "name": "New user clicks on the Begin Adventure button to register",
+            "match": {
+              "location": "src/tests/step-definitions/registration.ts:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 346168992
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 10,
+            "name": "All inputs field show error message",
+            "match": {
+              "location": "src/tests/step-definitions/registration.ts:24"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 3692496724
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 34577343
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "registration;validate-password-tooltip-is-shown",
+        "keyword": "Scenario",
+        "line": 12,
+        "name": "Validate password tooltip is shown",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 497388235
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "User navigates to the application",
+            "match": {
+              "location": "src/tests/step-definitions/login.ts:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1082214087
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "New user clicks on the Register button",
+            "match": {
+              "location": "src/tests/step-definitions/registration.ts:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 609608908
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 13,
+            "name": "User clicks on the password input",
+            "match": {
+              "location": "src/tests/step-definitions/registration.ts:68"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 232102334
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "Tooltip message should be visible",
+            "match": {
+              "location": "src/tests/step-definitions/registration.ts:73"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 541690699
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 52469705
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "registration;new-user-fills-registration-form-except-captcha",
+        "keyword": "Scenario",
+        "line": 16,
+        "name": "New user fills registration form except captcha",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 483533787
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "User navigates to the application",
+            "match": {
+              "location": "src/tests/step-definitions/login.ts:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1105463381
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "New user clicks on the Register button",
+            "match": {
+              "location": "src/tests/step-definitions/registration.ts:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 584348291
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 17,
+            "name": "New user enters email 'test-email-007@testdomain.com'",
+            "match": {
+              "location": "src/tests/step-definitions/registration.ts:28"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 149062116
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 18,
+            "name": "New user enters nickname 'new1Nick2User'",
+            "match": {
+              "location": "src/tests/step-definitions/registration.ts:32"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 22711218
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 19,
+            "name": "New user enters password 'abcdefghij1'",
+            "match": {
+              "location": "src/tests/step-definitions/registration.ts:36"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 30595789
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 20,
+            "name": "New user sets correct birth date",
+            "match": {
+              "location": "src/tests/step-definitions/registration.ts:52"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 44718160
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 21,
+            "name": "New user agrees with terms",
+            "match": {
+              "location": "src/tests/step-definitions/registration.ts:64"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 178279139
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 22,
+            "name": "New user clicks on the Begin Adventure button to register",
+            "match": {
+              "location": "src/tests/step-definitions/registration.ts:20"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 69979084
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 23,
+            "name": "All inputs are validated except captcha",
+            "match": {
+              "location": "src/tests/step-definitions/registration.ts:85"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1076764804
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 36748091
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "registration;validate-error-messages-for-invalid-passwords",
+        "keyword": "Scenario",
+        "line": 31,
+        "name": "Validate error messages for invalid passwords",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 462542753
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "User navigates to the application",
+            "match": {
+              "location": "src/tests/step-definitions/login.ts:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1373578797
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "New user clicks on the Register button",
+            "match": {
+              "location": "src/tests/step-definitions/registration.ts:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 501790532
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 26,
+            "name": "User enters invalid \"abc\"",
+            "match": {
+              "location": "src/tests/step-definitions/registration.ts:77"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 212796053
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 27,
+            "name": "Correct \"Your password must be at least 10 characters long.Your password must contain at least one letter, one number or a special character.\" warning should be shown",
+            "match": {
+              "location": "src/tests/step-definitions/registration.ts:81"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1036933525
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 46905363
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "registration;validate-error-messages-for-invalid-passwords",
+        "keyword": "Scenario",
+        "line": 32,
+        "name": "Validate error messages for invalid passwords",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 636406795
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "User navigates to the application",
+            "match": {
+              "location": "src/tests/step-definitions/login.ts:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1087083156
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "New user clicks on the Register button",
+            "match": {
+              "location": "src/tests/step-definitions/registration.ts:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 596885882
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 26,
+            "name": "User enters invalid \"abc1\"",
+            "match": {
+              "location": "src/tests/step-definitions/registration.ts:77"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 122301553
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 27,
+            "name": "Correct \"Your password must be at least 10 characters long.\" warning should be shown",
+            "match": {
+              "location": "src/tests/step-definitions/registration.ts:81"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1012754060
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 86894907
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "registration;validate-error-messages-for-invalid-passwords",
+        "keyword": "Scenario",
+        "line": 33,
+        "name": "Validate error messages for invalid passwords",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 476137000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "User navigates to the application",
+            "match": {
+              "location": "src/tests/step-definitions/login.ts:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 985593417
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "New user clicks on the Register button",
+            "match": {
+              "location": "src/tests/step-definitions/registration.ts:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 560773617
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 26,
+            "name": "User enters invalid \"abcdefgh1\"",
+            "match": {
+              "location": "src/tests/step-definitions/registration.ts:77"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 116897961
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 27,
+            "name": "Correct \"Your password must be at least 10 characters long.\" warning should be shown",
+            "match": {
+              "location": "src/tests/step-definitions/registration.ts:81"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1013701332
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 84493029
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      },
+      {
+        "description": "",
+        "id": "registration;validate-error-messages-for-invalid-passwords",
+        "keyword": "Scenario",
+        "line": 34,
+        "name": "Validate error messages for invalid passwords",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 423908034
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Given ",
+            "line": 5,
+            "name": "User navigates to the application",
+            "match": {
+              "location": "src/tests/step-definitions/login.ts:12"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1613946868
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 6,
+            "name": "New user clicks on the Register button",
+            "match": {
+              "location": "src/tests/step-definitions/registration.ts:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 535995673
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 26,
+            "name": "User enters invalid \"abcdefghij\"",
+            "match": {
+              "location": "src/tests/step-definitions/registration.ts:77"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 272483220
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 27,
+            "name": "Correct \"Your password must contain at least one letter, one number or a special character.\" warning should be shown",
+            "match": {
+              "location": "src/tests/step-definitions/registration.ts:81"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1020935695
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "result": {
+              "status": "passed",
+              "duration": 84408534
+            }
+          }
+        ],
+        "tags": [],
+        "type": "scenario"
+      }
+    ],
+    "id": "registration",
+    "line": 1,
+    "keyword": "Feature",
+    "name": "Registration",
+    "tags": [],
+    "uri": "src/tests/features/registration.feature"
+  }
+]

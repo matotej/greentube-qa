@@ -1,0 +1,8 @@
+
+# Playwright
+node_modules/
+/test-results/
+/src/helper/env/.env*
+.env
+
+*.DS_Store

@@ -1,0 +1,21 @@
+{
+  "name": "greentube-playwright",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "cucumber-old": "cucumber-js --config config/cucumber.js",
+    "cucumber-firefox": "ENV=prod BROWSER=firefox cucumber-js --config cucumber.json",
+    "cucumber-chrome": "ENV=prod BROWSER=chrome cucumber-js --config cucumber.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@cucumber/cucumber": "^11.3.0",
+    "@playwright/test": "^1.52.0",
+    "@types/node": "^22.15.29",
+    "dotenv": "^16.5.0",
+    "ts-node": "^10.9.2"
+  }
+}
