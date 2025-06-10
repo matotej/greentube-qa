@@ -33,30 +33,65 @@
 ## Test scenarios
 
 ### Login
+:white_check_mark:
 ```gherkin
-Scenario: Login should be successful :white_check_mark:
+Scenario: Login should be successful
+    Given User is on login form
     When User enters valid nickname for login
     And User enters valid password for login
     When User clicks on a log in button
     Then Valid user should be logged in
-
-Scenario: Login should be unsuccessful :white_check_mark:
+```
+:x:
+```gherkin
+Scenario: Successful login with Log in automatically
+    Given User is on login form
+    When User enters valid nickname for login
+    And User enters valid password for login
+    And User click on Log in automatically
+    When User clicks on a log in button
+    Then Valid user should be logged in
+```
+:white_check_mark:
+```gherkin
+Scenario: Login should be unsuccessful
+    Given User is on login form
     When User enters nickname "test1"
     And User enters password "test123"
-    When User clicks on a log in button
+    When User clicks on a Log in button
     But Login should fail
 ```
-### Registration
+:x:
 ```gherkin
-Scenario: Validate that all inputs are mandatory :white_check_mark:
+Scenario: User requests new password
+    Given User is on login form
+    When User click on Forgotten your password link
+    Then Forgotten your password form is shown
+    When User enters valid nickname for login
+    And User enters valid E mail for login
+    When Usser click on Send button
+    Then Email with new credentials should be sent
+```
+### Registration
+
+:white_check_mark:
+```gherkin
+Scenario: Validate that all inputs are mandatory
+    Given User is on register form
     When New user clicks on the Begin Adventure button to register
     Then All inputs fields show error message
-
-Scenario: Validate password tooltip is shown :white_check_mark:
+```
+:white_check_mark:
+```gherkin
+Scenario: Validate password tooltip is shown
+    Given User is on register form
     When User clicks on the password input
     Then Tooltip message should be visible
-
-Scenario: New user fills registration form except captcha :white_check_mark:
+```
+:white_check_mark:
+```gherkin
+Scenario: New user fills registration form except captcha
+    Given User is on register form
     When New user enters email 'test-email-007@testdomain.com'
     And New user enters nickname 'new1Nick2User'
     And New user enters password 'abcdefghij1'
@@ -64,8 +99,11 @@ Scenario: New user fills registration form except captcha :white_check_mark:
     And New user agrees with terms
     When New user clicks on the Begin Adventure button to register
     Then All inputs are validated except captcha
-
-Scenario: Validate error messages for invalid passwords :white_check_mark:
+```
+:white_check_mark:
+```gherkin
+Scenario: Validate error messages for invalid passwords
+    Given User is on register form
     When User enters invalid "<password>"
     Then Correct "<error>" warning should be shown
 
@@ -75,8 +113,11 @@ Scenario: Validate error messages for invalid passwords :white_check_mark:
         | abc1          | Your password must be at least 10 characters long.    |
         | abcdefgh1     | Your password must be at least 10 characters long.    |
         | abcdefghij    | Your password must contain at least one letter, one number or a special character.   |
-
-Scenario: New user successfully registers :x:
+```
+:x:
+```gherkin
+Scenario: New user successfully registers
+    Given User is on register form
     When New user enters email 'test-email-008@testdomain.com'
     And New user enters nickname 'new1Nick3User'
     And New user enters password 'abcdefghij1'
@@ -88,4 +129,13 @@ Scenario: New user successfully registers :x:
 ```
 
 ### Explanation
-For the login and the registration part of the application I would automate all possible edge cases.
+For the login and registration features of the application, I would aim to automate as many edge cases as possible. My primary focus would be on field content validation for Email, Nickname, Password, and Date of Birth, as each of these inputs has multiple validation requirements. These include constraints on length, character types, value format, and uniqueness.
+
+However, automating the entire registration process poses certain challenges in the current setup. The main obstacles are the Captcha and email confirmation steps. Similar challenges exist in the "Forgot your password" flow, which also relies on email validation. The "Log in automatically" functionality adds further complexity, as it requires verification of session persistence or cookie storage.
+
+These obstacles may require extra effort but are manageable:
+- For email handling, we could use an email provider with API access to validate confirmation flows.
+- Captchas can be disabled in certain test environments or bypassed via API if allowed.
+- The "Log in automatically" feature can be tested by verifying session or cookie storage through automation tools.
+
+All these tests should be included as part of the regression testing suite. They should be executed manually on a regular basis, or at minimum, prior to each new release to ensure stability and prevent regressions in critical authentication flows.
