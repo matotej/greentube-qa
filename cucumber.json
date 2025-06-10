@@ -8,8 +8,7 @@
             "progress-bar",
             "summary",
             "json:reports/cucumber-report.json",
-            "html:reports/cucumber-report.html",
-            "rerun:@rerun.txt"
+            "html:reports/cucumber-report.html"
         ],
         "formatOptions": {
             "colorsEnabled": true,
